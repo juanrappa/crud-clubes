@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th>
+      clubs
+    </th>
+    <th>
+      options
+    </th>
+  </tr>
+  {{#each data as |data|}}
+    <tr>
+      <th>
+        {{data.name}}
+      </th>
+      <th>
+        <a href="/{{data.id}}/look" class="look">look</a>
+        <a href="#" class="edit">edit</a>
+        <a href="#" class="delete">delete</a>
+      </th>
+    </tr>
+
+  {{/each}}
+</table>
