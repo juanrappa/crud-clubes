@@ -5,12 +5,12 @@ import * as fs from "node:fs";
 import { selectClub } from "../services/selectClub";
 const clubes = JSON.parse(fs.readFileSync("./data/equipos.json", "utf-8"));
 
-const router = Router();
-router.get("/:id/edit", (req: Request, res: Response): any => {
+const routerEdit = Router();
+routerEdit.get("/:id/edit", (req: Request, res: Response): any => {
   res.render("edit", {
     layout: "layout",
     club: createClub(Number(req.params.id), classClub, clubes, selectClub),
   });
 });
 
-export { router };
+export { routerEdit };
