@@ -9,9 +9,14 @@ import * as exphbs from "express-handlebars";
 const PUERTO = 8080;
 const app = express();
 const hbs = exphbs.create();
+
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("static"));
+app.use(express.static(`${__dirname}/uploads`));
 app.use(routerHome);
 app.use(routerEdit);
 app.use(routerLook);

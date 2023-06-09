@@ -3,15 +3,15 @@ import { deleteClub } from "../services/deleteClub";
 
 const routerDelete = Router();
 routerDelete.get("/:id/delete", (req: Request, res: Response): any => {
-  console.log(req.params.id);
   res.render("delete", {
     layout: "layout",
+    id: req.params.id,
   });
 });
 routerDelete.post("/:id/delete", (req: Request, res: Response): any => {
   const file: string = "./data/equipos.json";
-  const id: any = req.body;
-  res.send(id);
+  const id: number = Number(req.params.id);
   console.log(id);
+  deleteClub(file, id);
 });
 export { routerDelete };
